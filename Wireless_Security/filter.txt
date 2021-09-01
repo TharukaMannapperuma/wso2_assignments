@@ -1,0 +1,43 @@
+  GNU nano 4.8                                                                /etc/freeradius/3.0/policy.d/filter                                                                           
+#
+#       Example of forbidding all attempts to login via
+#       realms.
+#
+deny_realms {
+        if (&User-Name && (&User-Name =~ /@|\\/)) {
+                reject
+        }
+}
+
+#
+#       Filter the username
+#
+#  Force some sanity on User-Name. This helps to avoid issues
+#  issues where the back-end database is "forgiving" about
+#  what constitutes a user name.
+#
+filter_uuid {
+ if (&User-Name =~ /^(.*)@scj\.com$/) {
+ update request {
+ &User-UUID := "%{1}"
+ }
+ }
+}
+filter_google_otp {
+ if (&User-Password =~ /^(.*)([0-9]{6})$/) {
+ update request {
+ &Google-Password := "%{2}"
+ &User-Password := "%{1}"
+ }
+ }
+}
+
+
+
+filter_username {
+        if (&User-Name) {
+                #
+                #  reject mixed case e.g. "UseRNaMe"
+                                                                                     [ Read 228 lines ]
+^G Get Help      ^O Write Out     ^W Where Is      ^K Cut Text      ^J Justify       ^C Cur Pos       M-U Undo         M-A Mark Text    M-] To Bracket   M-Q Previous     ^B Back
+^X Exit          ^R Read File     ^\ Replace       ^U Paste Text    ^T To Spell      ^_ Go To Line    M-E Redo         M-6 Copy Text    ^Q Where Was     M-W Next         ^F Forward

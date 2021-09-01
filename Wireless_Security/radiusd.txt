@@ -1,0 +1,43 @@
+  GNU nano 4.8                                                                         /etc/pam.d/radiusd                                                                                   
+#
+# /etc/pam.d/radiusd - PAM configuration for FreeRADIUS
+#
+
+# We fall back to the system default in /etc/pam.d/common-*
+# 
+auth       required   /usr/lib/x86_64-linux-gnu/security/pam_google_authenticator.so  forward_pass
+#@include common-auth
+#@include common-account
+#@include common-password
+#@include common-session
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                     [ Read 11 lines ]
+^G Get Help      ^O Write Out     ^W Where Is      ^K Cut Text      ^J Justify       ^C Cur Pos       M-U Undo         M-A Mark Text    M-] To Bracket   M-Q Previous     ^B Back
+^X Exit          ^R Read File     ^\ Replace       ^U Paste Text    ^T To Spell      ^_ Go To Line    M-E Redo         M-6 Copy Text    ^Q Where Was     M-W Next         ^F Forward

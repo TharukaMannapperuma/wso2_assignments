@@ -1,0 +1,43 @@
+  GNU nano 4.8                                                              /etc/freeradius/3.0/mods-available/ldap                                                                         
+# -*- text -*-
+#
+#  $Id: 1741d7e6ed472617f190f90a545272be980a6ff1 $
+
+#
+#  Lightweight Directory Access Protocol (LDAP)
+#
+ldap {
+        #  Note that this needs to match the name(s) in the LDAP server
+        #  certificate, if you're using ldaps.  See OpenLDAP documentation
+        #  for the behavioral semantics of specifying more than one host.
+        #
+        #  Depending on the libldap in use, server may be an LDAP URI.
+        #  In the case of OpenLDAP this allows additional the following
+        #  additional schemes:
+        #  - ldaps:// (LDAP over SSL)
+        #  - ldapi:// (LDAP over Unix socket)
+        #  - ldapc:// (Connectionless LDAP)
+        server = '192.168.1.21'
+#       server = 'ldap.rrdns.example.org'
+#       server = 'ldap.rrdns.example.org'
+
+        #  Port to connect on, defaults to 389, will be ignored for LDAP URIs.
+#       port = 389
+
+        #  Administrator account for searching and possibly modifying.
+        #  If using SASL + KRB5 these should be commented out.
+        identity = 'cn=admin,dc=tlmwso2,dc=com'
+        password = Tharuka@Wso2
+
+        #  Unless overridden in another section, the dn from which all
+        #  searches will start from.
+        base_dn = 'dc=tlmwso2,dc=com'
+
+        #
+        #  You can run the 'ldapsearch' command line tool using the
+        #  parameters from this module's configuration.
+        #
+        #    ldapsearch -D ${identity} -w ${password} -h ${server}  -b 'CN=user,${base_dn}'
+                                                                                     [ Read 648 lines ]
+^G Get Help      ^O Write Out     ^W Where Is      ^K Cut Text      ^J Justify       ^C Cur Pos       M-U Undo         M-A Mark Text    M-] To Bracket   M-Q Previous     ^B Back
+^X Exit          ^R Read File     ^\ Replace       ^U Paste Text    ^T To Spell      ^_ Go To Line    M-E Redo         M-6 Copy Text    ^Q Where Was     M-W Next         ^F Forward

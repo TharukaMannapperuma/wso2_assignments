@@ -1,0 +1,67 @@
+#creating organizational units
+
+dn: ou=staff,dc=tlmwso2,dc=com
+objectClass: organizationalUnit
+ou: staff
+
+dn: ou=groups,ou=staff,dc=tlmwso2,dc=com
+objectClass: organizationalUnit
+ou: groups
+
+#Creating Users
+
+dn: uid=user001,ou=staff,dc=tlmwso2,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+cn: user001
+sn: demo
+displayName: user001 demo
+mail: user001@tlmwso2.com
+userPassword: {SSHA}LAn3FnEvDMpfDQ7e8G+94dKWH7Sj1Pea
+
+dn: uid=user002,ou=staff,dc=tlmwso2,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+cn: user002
+sn: demo
+displayName: user002 demo
+mail: user002@tlmwso2.com
+userPassword: {SSHA}LAn3FnEvDMpfDQ7e8G+94dKWH7Sj1Pea
+
+dn: uid=user003,ou=staff,dc=tlmwso2,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+cn: user003
+sn: demo
+displayName: user003 demo
+mail: user003@tlmwso2.com
+userPassword: {SSHA}LAn3FnEvDMpfDQ7e8G+94dKWH7Sj1Pea
+
+dn: uid=user004,ou=staff,dc=tlmwso2,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+cn: user004
+sn: demo
+displayName: user004 demo
+mail: user004@tlmwso2.com
+userPassword: {SSHA}ZNk4rqkxAB+TNM0/3E4stOCURf9A3AVY
+
+#Creating and Adding users to the groups
+
+dn: cn=manager,ou=groups,ou=staff,dc=tlmwso2,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: manager
+member: uid=user001,ou=staff,dc=tlmwso2,dc=com
+member: uid=user004,ou=staff,dc=tlmwso2,dc=com
+
+dn: cn=it,ou=groups,ou=staff,dc=tlmwso2,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: it
+member: uid=user002,ou=staff,dc=tlmwso2,dc=com
+member: uid=user003,ou=staff,dc=tlmwso2,dc=com
